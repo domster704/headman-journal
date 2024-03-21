@@ -1,0 +1,17 @@
+.cell {
+    /*display: flex;*/
+    justify-content: center;
+    align-items: center;
+    height: 2em;
+    width: 6em;
+    margin: 0.25em;
+    padding: 0.2em;
+    border-radius: 4px;
+    background-color: #DCDEE3;
+    color: #383A3F;
+}
+
+.cellStudents {
+    width: auto;
+    min-width: max-content;
+}
