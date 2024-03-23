@@ -8,8 +8,7 @@ export const TableHeader = (props) => {
             <th></th>
             {
                 props.pairsList.map((value, index, array) => {
-                    let isLeftCell = index === 0;
-                    return <TableCell key={index} value={value}>{value}</TableCell>
+                    return <TableCell key={index} value={value} isHeader={true}>{value}</TableCell>
                 })
             }
         </tr>

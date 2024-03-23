@@ -1,17 +1,30 @@
 .cell {
-    /*display: flex;*/
-    justify-content: center;
-    align-items: center;
-    height: 2em;
-    width: 6em;
-    margin: 0.25em;
-    padding: 0.2em;
-    border-radius: 4px;
+    min-width: 12em;
     background-color: #DCDEE3;
     color: #383A3F;
 }
 
-.cellStudents {
-    width: auto;
-    min-width: max-content;
+.cell input {
+    width: 100%;
+    height: 100%;
+    padding: 0.5em 3em;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    text-align: center;
+}
+
+.cell input[type="number"]::-webkit-outer-spin-button,
+.cell input[type="number"]::-webkit-inner-spin-button,
+.cell input[type='number'],
+.cell input[type='number']:hover,
+.cell input[type='number']:focus {
+    appearance: none;
+    -moz-appearance: textfield;
+    -webkit-appearance: none;
+}
+
+tbody .cell:hover {
+    background-color: #BCC3D6;
+    cursor: pointer;
 }

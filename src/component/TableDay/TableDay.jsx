@@ -1,9 +1,9 @@
 import React from 'react';
-import {TableHeader} from "../TableColumn/TableHeader";
+import {TableHeader} from "../TableHeader/TableHeader";
 import {TableRow} from "../TableRow/TableRow";
+import s from "./TableDay.module.css";
 
 export const TableDay = (props) => {
-
     let pairsList = ["Математика", "БЖД", "Экономика", "Сети"]
     let hoursList = [];
     for (let i = 0; i < pairsList.length; i++) {
