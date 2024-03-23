@@ -1,7 +1,5 @@
 import React from 'react';
-import {TableHeader} from "../TableHeader/TableHeader";
 import {TableRow} from "../TableRow/TableRow";
-import s from "./TableDay.module.css";
 
 export const TableDay = (props) => {
     let pairsList = ["Математика", "БЖД", "Экономика", "Сети"]
@@ -16,33 +14,19 @@ export const TableDay = (props) => {
     return (
         <table>
             <thead>
-            <TableHeader pairsList={pairsList}/>
+            {/*2 строчки для заголовка таблицы*/}
+            <TableRow name={""} list={pairsList} isHeader={true}
+                      cellsResult={["Итоги за неделю", "Итоги за все время"]}></TableRow>
             </thead>
             <tbody>
             {
                 props.students.map((student, index) => {
-                    return <TableRow key={index} student={student} hoursList={hoursList.map((value, index, array) => {
+                    return <TableRow key={index} name={student} list={hoursList.map((value, index, array) => {
                         return value.at(index);
-                    })}/>
+                    })} cellsResult={[0, 0, 0, 0]}/>
                 })
             }
             </tbody>
         </table>
-        // <>
-        //     <TableColumn hoursList={hoursList}/>
-        //     <div className={s.container}>
-        //         <TableStudentsName students={props.students}/>
-        //         <div className={s.grid} style={{gridTemplateColumns: `repeat(${pairsCount}, 1fr)`}}>
-        //             {
-        //                 hoursList.map((value, index, array) => {
-        //                     return value.map((v, i, a) => {
-        //                         return <TableCell key={i}>i</TableCell>
-        //                     });
-        //                 })
-        //             }
-        //         </div>
-        //     </div>
-        // </>
-
     )
 }
