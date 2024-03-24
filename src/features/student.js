@@ -8,8 +8,8 @@ export class Student {
     constructor(id, name, daysList, weeksList) {
         this.id = id;
         this.name = name;
-        this.daysList = daysList;
-        this.weeksList = weeksList;
+        this.days = daysList;
+        this.weeks = weeksList;
     }
 
     /**
@@ -17,7 +17,7 @@ export class Student {
      * @return {Array<number>}
      */
     getHoursListByDate(date) {
-        let dayListWith1Size = this.daysList.filter(day => {
+        let dayListWith1Size = this.days.filter(day => {
             return day.date.getTime() === date.getTime();
         })
         if (dayListWith1Size.length === 0) {
@@ -33,7 +33,7 @@ export class Student {
      * @return {Days}
      */
     getDayByDate(date) {
-        let dayListWith1Size = this.daysList.filter(day => {
+        let dayListWith1Size = this.days.filter(day => {
             return day.date.getTime() === date.getTime();
         });
         if (dayListWith1Size.length === 0) {
@@ -47,7 +47,7 @@ export class Student {
      * @return {Weeks}
      */
     getWeekByDate(date) {
-        let weekListWith1Size = this.weeksList.filter(week => {
+        let weekListWith1Size = this.weeks.filter(week => {
             return week.date.getTime() === date.getTime();
         });
         if (weekListWith1Size.length === 0) {
@@ -62,7 +62,7 @@ export class Student {
      * @return {number}
      */
     getHoursByDate(date, type) {
-        let dayListWith1Size = this.daysList.filter(day => {
+        let dayListWith1Size = this.days.filter(day => {
             return day.date.getTime() === date.getTime();
         });
         if (dayListWith1Size.length === 0) {
@@ -77,16 +77,16 @@ export class Student {
      */
     getHoursByAllTime(type) {
         let query = type === Type.GOOD ? "goodHours" : "badHours";
-        return this.daysList.reduce((acc, day) => {
+        return this.days.reduce((acc, day) => {
             return acc + day[query];
         }, 0)
     }
 
     recalculate() {
-        this.daysList.forEach(day => {
+        this.days.forEach(day => {
             day.recalculate();
         });
-        this.weeksList.forEach(week => {
+        this.weeks.forEach(week => {
             week.recalculate();
         });
     }

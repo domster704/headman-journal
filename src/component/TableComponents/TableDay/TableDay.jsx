@@ -1,12 +1,15 @@
 import React from 'react';
 import {TableRow} from "../TableRow/TableRow";
-import {Type} from "../../../features/student";
+import {useSelector} from "react-redux";
 
 export const TableDay = (props) => {
+    const students = useSelector((state) => state.students);
+
     let pairsList = props.store.days.filter(data => {
         return data.date.getTime() === props.now.getTime();
     })[0].pairs;
 
+    console.log(students)
     return (
         <table>
             <thead>
@@ -15,8 +18,8 @@ export const TableDay = (props) => {
                       cellsResult={["Итоги за неделю", "Итоги за все время"]}/>
             </thead>
             <tbody>
-            {props.store.students.map((student, index) => {
-                return <TableRow student={student}
+            {Object.keys(students).map((studentKey, index) => {
+                return <TableRow student={students[studentKey]}
                                  key={index}
                 />;
             })}

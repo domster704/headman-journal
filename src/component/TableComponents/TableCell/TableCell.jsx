@@ -1,5 +1,7 @@
 import React from 'react';
 import s from './TableCell.module.css';
+import {useDispatch} from 'react-redux';
+import {setHoursOnPair} from "../../../store/hoursSlice";
 
 /**
  * @param {object} props
@@ -11,6 +13,8 @@ import s from './TableCell.module.css';
  * @constructor
  */
 export const TableCell = (props) => {
+    let dispatch = useDispatch();
+
     if (props.isHeader) {
         return (
             <th colSpan={props.colSpan}
@@ -20,14 +24,22 @@ export const TableCell = (props) => {
             </th>
         );
     }
+
+    const onChange = (event) => {
+        dispatch(setHoursOnPair({
+            id: props.studentID,
+            date: new Date(2024, 3, 4),
+            pairIndex: props.pairIndex,
+            hours: parseInt(event.target.value)
+        }));
+    }
+
     return (
         <td className={`${s.cell} ${props.className}`}>
             <input type={"text"}
                    value={props.children}
                    onFocus={(event) => event.target.select()}
-                   onChange={(event) => {
-                       props.onChangeHour(event, props);
-                   }}
+                   onChange={onChange}
                    maxLength={1}/>
         </td>
     );

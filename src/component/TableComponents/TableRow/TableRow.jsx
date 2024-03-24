@@ -15,28 +15,18 @@ export const TableRow = (props) => {
     let nameCell = props.isHeader ? <th rowSpan={2}>{studentName}</th> : <td>{studentName}</td>;
     let isHeader = props.isHeader || false;
 
-    let [listValueForCellsOrHeader, setListValueForCellsOrHeader] = React.useState(props.list?.length > 0 ? props.list : props.student.getHoursListByDate(new Date(2024, 3, 4)));
-
-    const onChangeHour = (event, cellProps) => {
-        let pairObject = cellProps.student?.daysList[0].pairs[cellProps.pairIndex];
-        pairObject.hour = parseInt(event.target.value);
-        cellProps.student.recalculate();
-        console.log(listValueForCellsOrHeader, pairObject.hour)
-        setListValueForCellsOrHeader(cellProps.student.getHoursListByDate(new Date(2024, 3, 4)));
-        console.log(listValueForCellsOrHeader)
-    }
+    let listValueForCellsOrHeader = props.list?.length > 0 ? props.list : props.student.getHoursListByDate(new Date(2024, 3, 4));
 
     return (
         <>
             <tr>
                 {nameCell}
                 {listValueForCellsOrHeader.map((element, index) => {
-                    return (<TableCell student={props.student}
+                    return (<TableCell studentID={props.student?.id || 0}
                                        pairIndex={index}
                                        key={index}
                                        isHeader={isHeader}
-                                       rowSpan={2}
-                                       onChangeHour={onChangeHour}>
+                                       rowSpan={2}>
                         {element}
                     </TableCell>);
                 })}
