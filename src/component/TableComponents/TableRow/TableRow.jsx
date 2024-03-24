@@ -6,7 +6,6 @@ import {Type} from "../../../features/student";
 import {Button} from "../../Button/Button";
 import exportToExcel from "../../../features/exportToExcel";
 
-
 /**
  * cellsResult - массив с значениями для результирующих клеток
  * @param props
