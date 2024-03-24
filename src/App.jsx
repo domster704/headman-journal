@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {TableDay} from "./component/TableComponents/TableDay/TableDay";
 
 let store = {
@@ -11,9 +11,9 @@ let store = {
 let currentDay = new Date(2024, 3, 4);
 
 const App = () => {
-    return (
-        <TableDay now={currentDay} store={store}/>
-    );
+    const table = useRef(null);
+
+    return <TableDay table={table} now={currentDay} store={store}/>
 }
 
 export default App;

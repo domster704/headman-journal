@@ -7,36 +7,3 @@
 
     transition: all .2s ease;
 }
-
-table {
-    border-collapse: collapse;
-    --border-color: grey;
-    border: 3px solid var(--border-color);
-}
-
-thead tr:first-child th:first-child,
-tr > :is(td):first-child {
-    text-align: start;
-    border-right: 3px solid var(--border-color);
-    padding: 0.5em 3em 0.5em 1em;
-    min-width: max-content;
-    white-space: nowrap
-}
-
-td, th {
-    text-align: center;
-    min-width: 6em;
-    width: 9em;
-    height: 2em;
-}
-
-tbody :is(td, th):not(:first-child) {
-    border-bottom: 1px solid grey;
-    border-right: 1px solid grey;
-}
-
-/*th[rowspan='2'],*/
-/*tr:last-child*/
-th {
-    border-bottom: 3px solid var(--border-color);
-}
