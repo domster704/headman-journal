@@ -3,6 +3,8 @@ import {TableCell} from "../TableCell/TableCell";
 import {TableCellsResult} from "../TableCellsResult/TableCellsResult";
 import {TableHeaderSecondRow} from "./TableHeaderSecondRow";
 import {Type} from "../../../features/student";
+import {Button} from "../../Button/Button";
+import exportToExcel from "../../../features/exportToExcel";
 
 /**
  * cellsResult - массив с значениями для результирующих клеток
@@ -11,7 +13,7 @@ import {Type} from "../../../features/student";
  * @constructor
  */
 export const TableRow = (props) => {
-    let studentName = props.student?.name || "";
+    let studentName = props.student?.name || <Button onClick={() => exportToExcel(props.table.current)}>Экспортировать в Excel</Button>;
     let nameCell = props.isHeader ? <th rowSpan={2}>{studentName}</th> : <td>{studentName}</td>;
     let isHeader = props.isHeader || false;
 

@@ -43,6 +43,21 @@ const initialState = {
             pairName: "Сети",
             hours: 0
         }])],
+        [new Weeks(new Date(2024, 3, 4), 0, 0)]),
+    3: new Student(3, "Рид Екатерина Романовна",
+        [new Days(new Date(2024, 3, 4), [{
+            pairName: "Математика",
+            hours: 0
+        }, {
+            pairName: "БЖД",
+            hours: 0
+        }, {
+            pairName: "Экономика",
+            hours: 0
+        }, {
+            pairName: "Сети",
+            hours: 1
+        }])],
         [new Weeks(new Date(2024, 3, 4), 0, 0)])
 }
 
